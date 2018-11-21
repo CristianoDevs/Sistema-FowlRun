@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="580.0" maxWidth="1120.0" minHeight="580.0" minWidth="1120.0" prefHeight="580.0" prefWidth="1120.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.monte.sistemafowlrun.controller.FXMLAviarioController">
+    <stylesheets>
+        <URL value="@/styles/fxmlaviario.css" />
+    </stylesheets>
+   <children>
+      <Label fx:id="asdas" layoutX="330.0" layoutY="282.0" text="Aviario" />
+      <Button fx:id="btnAbrirTelaCadCidade" layoutX="400.0" layoutY="198.0" mnemonicParsing="false" onAction="#abrirTelaCadCidade" prefHeight="63.0" prefWidth="230.0" text="Cidade" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="600.0" maxWidth="1300.0" minHeight="600.0" minWidth="1300.0" prefHeight="600.0" prefWidth="1300.0" style="-fx-background-color: #B9F6CA;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.monte.sistemafowlrun.controller.FXMLCadCidadeController">
+    <stylesheets>
+        <URL value="@/styles/fxmlcadcidade.css" />
+    </stylesheets>
+   <children>
+      <Pane maxHeight="100.0" maxWidth="1300.0" minHeight="100.0" minWidth="1300.0" prefHeight="100.0" prefWidth="1300.0" style="-fx-background-color: #00C853;">
+         <children>
+            <Label fx:id="lblSair" layoutX="1245.0" onMouseClicked="#sairJanela" prefHeight="53.0" prefWidth="55.0" text="  x">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="13.0" prefHeight="17.0" prefWidth="257.0" text="Cadastros de cidades">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <AnchorPane layoutX="12.0" layoutY="60.0" maxHeight="457.0" maxWidth="1300.0" minHeight="166.0" minWidth="792.0" prefHeight="457.0" prefWidth="1278.0" style="-fx-background-color: #69F0AE;">
+         <children>
+            <JFXTextField fx:id="txtCodigoCidade" editable="false" labelFloat="true" layoutX="47.0" layoutY="58.0" prefHeight="25.0" prefWidth="162.0" promptText="Codigo" />
+            <JFXTextField fx:id="txtNomeCidade" labelFloat="true" layoutX="231.0" layoutY="58.0" prefHeight="25.0" prefWidth="281.0" promptText="Nome Cidade:" />
+            <JFXComboBox fx:id="cmbEstado" labelFloat="true" layoutX="581.0" layoutY="58.0" prefHeight="25.0" prefWidth="122.0" promptText="Estado" />
+            <TableView fx:id="tbCidades" layoutX="47.0" layoutY="104.0" onMouseClicked="#selecionarLinhaViewTable" prefHeight="338.0" prefWidth="879.0">
+              <columns>
+                <TableColumn fx:id="colunaCodigoCidade" prefWidth="200.0" text="Código" />
+                <TableColumn fx:id="colunaNomeCidade" minWidth="0.0" prefWidth="477.0" text="Cidade" />
+                  <TableColumn fx:id="colunaEstado" minWidth="0.0" prefWidth="201.0" text="Estado" />
+              </columns>
+            </TableView>
+            <Button fx:id="btnListar" layoutX="783.0" layoutY="33.0" mnemonicParsing="false" onAction="#listarTabela" prefHeight="53.0" prefWidth="139.0" text="Listar" />
+         </children>
+         <effect>
+            <DropShadow height="59.55" radius="21.119999999999997" spread="0.28" width="26.93" />
+         </effect>
+      </AnchorPane>
+      <AnchorPane layoutX="25.0" layoutY="544.0" prefHeight="41.0" prefWidth="175.0">
+         <children>
+            <Button fx:id="btnSalvar" layoutX="36.0" layoutY="2.0" mnemonicParsing="false" onAction="#salvarCidade" prefHeight="49.0" prefWidth="162.0" style="-fx-background-color: #009500;" text="Salvar" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+         <effect>
+            <DropShadow height="14.3" radius="5.36" width="9.14" />
+         </effect>
+      </AnchorPane>
+      <AnchorPane layoutX="248.0" layoutY="544.0" prefHeight="41.0" prefWidth="175.0">
+         <children>
+            <Button fx:id="btnExcluir" layoutX="36.0" layoutY="2.0" mnemonicParsing="false" onAction="#ExcluirCidade" prefHeight="49.0" prefWidth="162.0" style="-fx-background-color: #e20606;" text="Excluir" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="468.0" layoutY="544.0" prefHeight="41.0" prefWidth="175.0">
+         <children>
+            <Button fx:id="btnAtualizar" layoutX="36.0" layoutY="2.0" mnemonicParsing="false" onAction="#atualizarCidade" prefHeight="49.0" prefWidth="162.0" style="-fx-background-color: #0013ff;" text="Atualizar" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="695.0" layoutY="544.0" prefHeight="41.0" prefWidth="175.0">
+         <children>
+            <Button fx:id="btnLimpar" layoutX="36.0" layoutY="2.0" mnemonicParsing="false" onAction="#Limpar" prefHeight="49.0" prefWidth="162.0" style="-fx-background-color: #f44b00;" text="Limpar" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

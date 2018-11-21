@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="anchoPanePrincipal" maxHeight="580.0" maxWidth="1300.0" minHeight="580.0" minWidth="1300.0" prefHeight="580.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.monte.sistemafowlrun.controller.FXMLController">
+   <children>
+      <SplitPane fx:id="spMenu" dividerPositions="0.5" layoutX="-4.0" layoutY="-1.0" maxHeight="580.0" maxWidth="1300.0" minHeight="580.0" minWidth="1300.0" prefHeight="580.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <AnchorPane fx:id="appMenuEsquerdo" maxHeight="580.0" maxWidth="200.0" minHeight="580.0" minWidth="200.0" prefHeight="580.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="imgLogotipo" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <VBox fx:id="cbMenu" layoutX="44.0" layoutY="138.0" maxHeight="442.0" maxWidth="200.0" minHeight="430.0" minWidth="200.0" prefHeight="442.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="138.0">
+                     <children>
+                        <Button fx:id="btnHome" maxHeight="60.0" maxWidth="200.0" minHeight="60.0" minWidth="200.0" mnemonicParsing="false" onAction="#abrirTelaHome" prefHeight="60.0" prefWidth="200.0" text="Home" />
+                        <Button fx:id="btnAviario" maxHeight="60.0" maxWidth="200.0" minHeight="60.0" minWidth="200.0" mnemonicParsing="false" onAction="#abrirTelaAviario" prefHeight="60.0" prefWidth="200.0" text="Aviario" />
+                        <Button fx:id="btnAlojamento" maxHeight="60.0" maxWidth="200.0" minHeight="60.0" minWidth="200.0" mnemonicParsing="false" onAction="#abrirTelaAlojamento" prefHeight="60.0" prefWidth="200.0" text="Alojamento" />
+                        <Button fx:id="btnCadastros" maxHeight="60.0" maxWidth="200.0" minHeight="60.0" minWidth="200.0" mnemonicParsing="false" onAction="#abrirTelaCadastros" prefHeight="60.0" prefWidth="200.0" text="Cadastros e Pesquisas" />
+                        <Button fx:id="btnSair" maxHeight="60.0" maxWidth="200.0" minHeight="60.0" minWidth="200.0" mnemonicParsing="false" onAction="#Sair" prefHeight="60.0" prefWidth="200.0" text="Sair" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="appMenuDireito" maxHeight="580.0" maxWidth="1120.0" minHeight="580.0" minWidth="1120.0" prefHeight="580.0" prefWidth="1120.0" />
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
