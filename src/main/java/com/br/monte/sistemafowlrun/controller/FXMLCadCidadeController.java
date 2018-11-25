@@ -51,12 +51,7 @@ public class FXMLCadCidadeController implements Initializable {
     @FXML
     private Button btnAtualizar;
     @FXML
-    private Button btnLimpar;
-
-    private final CidadeDAO cidadeDAO = new CidadeDAO();
-    private List<Cidade> listCidade;
-    private ObservableList<Cidade> observableCidades =  FXCollections.observableArrayList();
-    
+    private Button btnLimpar;  
     @FXML
     private TableView<Cidade> tbCidades;
     @FXML
@@ -68,6 +63,11 @@ public class FXMLCadCidadeController implements Initializable {
     @FXML
     private Button btnListar;
     
+    private final CidadeDAO cidadeDAO = new CidadeDAO();
+    private Cidade cidade = new Cidade();
+    private List<Cidade> listCidade;
+    private ObservableList<Cidade> observableCidades;
+    
     
     /**
      * Initializes the controller class.
@@ -75,14 +75,9 @@ public class FXMLCadCidadeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         preencherComboBox();
-        
-        
-        
-                                     
-       
-        
+        carregaCidadeTableView();
     }    
-
+    
     @FXML
     private void sairJanela(MouseEvent event) {
         Stage st = (Stage) lblSair.getScene().getWindow();// obtem a janela atual
@@ -90,39 +85,34 @@ public class FXMLCadCidadeController implements Initializable {
     }
 
     @FXML
-    private void salvarCidade(ActionEvent event) throws Exception {
-        Cidade cidades = new Cidade();       
-               
-        cidades.setNome(txtNomeCidade.getText());             
-        cidades.setUf(cmbEstado.getValue());
-               
+    private void salvarCidade(ActionEvent event) throws Exception{  
+        cidade.setNome(txtNomeCidade.getText());             
+        cidade.setUf(cmbEstado.getValue());
+        cidade.setCodigo(Integer.parseInt(txtCodigoCidade.getText()));
         try {
-            cidadeDAO.salvar(cidades);
+            cidadeDAO.salvar(cidade);
+            cidade = new Cidade();
             JOptionPane.showMessageDialog(null, "Sucesso");
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
 	    e.printStackTrace();
         }
-        
+        limparCampos();
+        carregaCidadeTableView();
     }
 
     @FXML
-    private void ExcluirCidade(ActionEvent event) {
-        Cidade cidade = new Cidade();
-        
+    private void ExcluirCidade(ActionEvent event) {    
         cidade.setCodigo(Integer.parseInt(txtCodigoCidade.getText()));
         
         try {
             cidadeDAO.excluir(cidade);
+           
             JOptionPane.showMessageDialog(null, "Excluido");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
 	    e.printStackTrace();
         }
-    }
-
-    @FXML
-    private void atualizarCidade(ActionEvent event) {
     }
 
     @FXML
@@ -133,18 +123,22 @@ public class FXMLCadCidadeController implements Initializable {
     public void limparCampos(){
         txtCodigoCidade.setText("");
         txtNomeCidade.setText("");
+        cmbEstado.setValue("");
         cmbEstado.setPromptText("Estado");   
     }
 
     
     @FXML
     private void selecionarLinhaViewTable(MouseEvent event) {
+        txtCodigoCidade.setText(String.valueOf(tbCidades.getSelectionModel().getSelectedItem().getCodigo()));
+        txtNomeCidade.setText(tbCidades.getSelectionModel().getSelectedItem().getNome()); 
+        cmbEstado.setValue(tbCidades.getSelectionModel().getSelectedItem().getUf());
     }
     
     public void carregaCidadeTableView(){
                
-        List<Cidade> cidade = cidadeDAO.buscarTodos();
-		for (Cidade cid : cidade) {
+        listCidade = cidadeDAO.buscarTodos();
+		for (Cidade cid : listCidade) {
                                 cid.getCodigo();
                                 cid.getNome();
                                 cid.getUf();                          	
@@ -154,7 +148,7 @@ public class FXMLCadCidadeController implements Initializable {
         colunaNomeCidade.  setCellValueFactory(new PropertyValueFactory<Cidade, String>("nome"));
         colunaEstado.      setCellValueFactory(new PropertyValueFactory<Cidade, String>("uf"));
              
-        observableCidades =  FXCollections.observableArrayList(cidade);
+        observableCidades =  FXCollections.observableArrayList(listCidade);
         
         tbCidades.setItems(observableCidades);
     }
